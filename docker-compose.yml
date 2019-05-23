@@ -1,0 +1,19 @@
+version: '3'
+services: 
+  react-app:
+    build:
+      context: . # we want all the files and folders for this image to be pulled from.
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes: # volume oluşturmak, biz dosyalarda değişiklik yaptığımız zaman tekrar build yapmamıza gerek kalmamasını sağlıyor, yani volume burada ki dosya sistemimizin kopyasını alıyor.
+      - /app/node_modules
+      - .:/app
+  tests:
+    build:
+      context: . # we want all the files and folders for this image to be pulled from.
+      dockerfile: Dockerfile.dev
+    volumes: # volume oluşturmak, biz dosyalarda değişiklik yaptığımız zaman tekrar build yapmamıza gerek kalmamasını sağlıyor, yani volume burada ki dosya sistemimizin kopyasını alıyor.
+      - /app/node_modules # - (tire) işleci array anlamına geliyor.
+      - .:/app
+    command: ["npm", "run", "test"]
