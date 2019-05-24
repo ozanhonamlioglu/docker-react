@@ -19,7 +19,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with me bitches
+          DOCKER-GITHUB-TRAVIS-AWS beanstalk learning flow.
         </a>
       </header>
     </div>
