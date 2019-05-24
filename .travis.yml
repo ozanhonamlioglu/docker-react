@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+# beefore doing anything, first we get a copy of our builded image.
+before_install:
+  - docker build -t xmastree/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run xmastree/docker-react npm run test -- --coverage
+  
