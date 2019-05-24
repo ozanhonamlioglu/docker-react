@@ -7,5 +7,4 @@ before_install:
   - docker build -t xmastree/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run xmastree/docker-react npm run test -- --coverage
-  
+  - docker run -e CI=true xmastree/docker-react npm run test -- --coverage --watchAll=false
